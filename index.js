@@ -1,19 +1,21 @@
-const config = require('./config/config');
+const config = require('./config/config.json')[process.env.NODE_ENV || 'development'];
 const winston = require('winston');
 const Sequelize = require('sequelize');
 
 winston.configure({
 
    transports: [
-     new (winston.transports.Console)({ level: 'debug' }),
+     new (winston.transports.Console)({ level: 'debug', json: true }),
      new (winston.transports.File)({ filename: 'logs/postgresIndexjs.log' , level: 'info' })
    ]
 
    // move this to ./config/config eventually
 });
 
-let sequelize = new Sequelize(`postgres://${config.database.username}:${config.database.password}@${config.database.host}:${config.database.port}/${config.database.dbname}`);
 
+winston.log('debug', process.env);
+
+let sequelize = new Sequelize(`${config.POSTGRES_HOST}:${config.POSTGRES_PORT}/${config.POSTGRES_DBNAME}`);
 
 
 sequelize
@@ -26,23 +28,23 @@ sequelize
   });
 
 
-var User = sequelize.define('user', {
-  username: Sequelize.STRING,
-  birthday: Sequelize.DATE
-});
+// winston.log('debug', process.env);
+
+// var User = sequelize.define('user', {
+//   username: Sequelize.STRING,
+//   birthday: Sequelize.DATE
+// });
 
 
-sequelize.sync().then(function() {
-  return User.create({
-    username: 'paul doe',
-    birthday: new Date(1989, 1, 12)
-  });
-}).then(function(jane) {
+// sequelize.sync().then(function() {
+//   return User.create({
+//     username: 'paul doe',
+//     birthday: new Date(1989, 1, 12)
+//   });
+// }).then(function(jane) {
 
-  console.log(jane.get({
-    plain: true
-  }));
-});
+//   console.log(jane.get({
+//     plain: true
+//   }));
+// });
 
-
-winston.log('debug', 'test pull request');

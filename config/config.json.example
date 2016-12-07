@@ -1,0 +1,12 @@
+{
+  "development": {
+    "POSTGRES_HOST": "postgres://username:password@hostname",
+    "POSTGRES_DBNAME" : "databasename",
+    "POSTGRES_PORT" : "5432"
+  },
+  "production": {
+    "POSTGRES_HOST": "postgres://username:password@hostname",
+    "POSTGRES_DBNAME" : "databasename",
+    "POSTGRES_PORT" : "5432"
+  }
+}
