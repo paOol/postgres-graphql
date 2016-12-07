@@ -45,3 +45,4 @@ sequelize.sync().then(function() {
 });
 
 
+winston.log('debug', 'test pull request');
