@@ -1,0 +1,13 @@
+var config = {};
+
+config.database = {};
+
+config.database.host = process.env.DATABASE_HOST || 'localhost';
+config.database.port = process.env.DATABASE_PORT || '5432';
+config.database.username = process.env.DATABASE_USERNAME || 'postgres';
+config.database.password = process.env.DATABASE_PASSWORD || 'password';
+config.database.dbname = process.env.DATABASE_DBNAME || 'postgres';
+
+
+
+module.exports = config;
