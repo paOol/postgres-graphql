@@ -13,7 +13,7 @@ winston.configure({
 knex.migrate.latest()
   .then(function() {
     // run knex seed files if needed
-    //return knex.seed.run();
+    return knex.seed.run();
   })
   .then(function() {
     winston.log('info', 'ran migrations from index.js. DB should be up to date.');
