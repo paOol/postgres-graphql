@@ -4,10 +4,10 @@ const winston = require('winston');
 
 winston.configure({
   transports: [
-    new(winston.transports.Console)({ level: 'debug', json: true }),
-    new(winston.transports.File)({ filename: 'logs/postgresIndexjs.log', level: 'info' })
-  ]
-  // move this to ./config/config eventually
+      new(winston.transports.Console)({ level: 'debug', json: true }),
+      new(winston.transports.File)({ filename: 'logs/postgresIndexjs.log', level: 'info' })
+    ]
+    // move this to ./config/config eventually
 });
 
 knex.migrate.latest()
@@ -17,4 +17,5 @@ knex.migrate.latest()
   })
   .then(function() {
     winston.log('info', 'ran migrations from index.js. DB should be up to date.');
-});
+    process.exit();
+  });
