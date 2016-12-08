@@ -1,6 +1,7 @@
-const config = require('./config/config.json')[process.env.NODE_ENV || 'development'];
-const knex = require('knex')(require('./knexfile')[process.env.NODE_ENV || 'development']);
-const winston = require('winston');
+let env = process.env.NODE_ENV || 'development';
+let knex = require('knex')(require('./knexfile')[env]);
+let winston = require('winston');
+let fs = require('fs-extra');
 
 winston.configure({
   transports: [
@@ -12,8 +13,13 @@ winston.configure({
 
 knex.migrate.latest()
   .then(function() {
-    // run knex seed files if needed
-    return knex.seed.run();
+    if (fs.existsSync(__dirname + `/db/seeds/${env}`)) {
+      winston.log('info', `seeding ${env} db`);
+      return knex.seed.run();
+    }
+    else{
+      winston.log('info', `${env} seed directory does not exist. seeding will not occur`);
+    }
   })
   .then(function() {
     winston.log('info', 'ran migrations from index.js. DB should be up to date.');
