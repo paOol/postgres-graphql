@@ -3,6 +3,7 @@ let knex = require('knex')(require('./knexfile')[env]);
 let winston = require('winston');
 let fs = require('fs-extra');
 require('winston-papertrail').Papertrail;
+require('pretty-error').start();
 
 winston.configure({
   transports: [

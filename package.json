@@ -25,6 +25,7 @@
     "knex": "^0.12.6",
     "pg": "^6.1.0",
     "pg-hstore": "^2.3.2",
+    "pretty-error": "^2.0.2",
     "winston": "^2.3.0"
   },
   "devDependencies": {
