@@ -33,7 +33,11 @@ exports.seed = function(knex, Promise) {
             position: 7,
             active: true
           }]
-        ),
+        )
+      ]);
+    })
+    .then(function() {
+      return Promise.all([
         knex('categories').insert([{
           menu_id: 6,
           name: "Burgers",
@@ -154,7 +158,11 @@ exports.seed = function(knex, Promise) {
           description: "Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique.",
           position: 20,
           active: "TRUE"
-        }]),
+        }])
+      ])
+    })
+    .then(function() {
+      return Promise.all([
         knex('categoryImages').insert([{
           category_id: 1,
           href: "http://theatlantic.com/ut/nunc/vestibulum/ante.aspx?porta=volutpat&volutpat=erat&quam=quisque&pede=erat&lobortis=eros&ligula=viverra&sit=eget&amet=congue&eleifend=eget&pede=semper&libero=rutrum&quis=nulla&orci=nunc&nullam=purus&molestie=phasellus&nibh=in&in=felis&lectus=donec&pellentesque=semper&at=sapien&nulla=a&suspendisse=libero&potenti=nam&cras=dui&in=proin&purus=leo&eu=odio&magna=porttitor&vulputate=id&luctus=consequat&cum=in&sociis=consequat&natoque=ut&penatibus=nulla&et=sed&magnis=accumsan&dis=felis&parturient=ut&montes=at&nascetur=dolor&ridiculus=quis&mus=odio&vivamus=consequat&vestibulum=varius&sagittis=integer&sapien=ac&cum=leo&sociis=pellentesque&natoque=ultrices&penatibus=mattis&et=odio&magnis=donec&dis=vitae&parturient=nisi&montes=nam&nascetur=ultrices&ridiculus=libero&mus=non&etiam=mattis&vel=pulvinar&augue=nulla&vestibulum=pede&rutrum=ullamcorper&rutrum=augue&neque=a&aenean=suscipit&auctor=nulla&gravida=elit&sem=ac&praesent=nulla&id=sed&massa=vel&id=enim&nisl=sit&venenatis=amet&lacinia=nunc&aenean=viverra&sit=dapibus&amet=nulla&justo=suscipit&morbi=ligula&ut=in&odio=lacus&cras=curabitur&mi=at&pede=ipsum&malesuada=ac&in=tellus&imperdiet=semper&et=interdum&commodo=mauris",
@@ -255,7 +263,11 @@ exports.seed = function(knex, Promise) {
           href: "https://timesonline.co.uk/dis/parturient.aspx?ornare=proin&consequat=leo&lectus=odio&in=porttitor&est=id&risus=consequat&auctor=in&sed=consequat&tristique=ut&in=nulla&tempus=sed&sit=accumsan&amet=felis&sem=ut&fusce=at&consequat=dolor&nulla=quis&nisl=odio&nunc=consequat&nisl=varius&duis=integer&bibendum=ac&felis=leo&sed=pellentesque&interdum=ultrices&venenatis=mattis&turpis=odio&enim=donec&blandit=vitae&mi=nisi&in=nam&porttitor=ultrices&pede=libero&justo=non&eu=mattis&massa=pulvinar&donec=nulla&dapibus=pede&duis=ullamcorper&at=augue&velit=a&eu=suscipit&est=nulla&congue=elit&elementum=ac&in=nulla&hac=sed&habitasse=vel&platea=enim&dictumst=sit&morbi=amet&vestibulum=nunc&velit=viverra&id=dapibus&pretium=nulla&iaculis=suscipit&diam=ligula&erat=in&fermentum=lacus&justo=curabitur&nec=at&condimentum=ipsum&neque=ac&sapien=tellus&placerat=semper",
           position: 10,
           active: "TRUE"
-        }]),
+        }])
+      ])
+    })
+    .then(function() {
+      return Promise.all([
         knex('menuItems').insert([{
           category_id: 14,
           name: "nam",
@@ -3256,7 +3268,11 @@ exports.seed = function(knex, Promise) {
           description: "Donec dapibus.",
           price: 3.98,
           active: "TRUE"
-        }]),
+        }])
+      ])
+    })
+    .then(function() {
+      return Promise.all([
         knex('menuItemImages').insert([{
           menu_item_id: 278,
           href: "http://dummyimage.com/234x166.png/dddddd/000000",
@@ -5757,7 +5773,11 @@ exports.seed = function(knex, Promise) {
           href: "http://dummyimage.com/118x149.bmp/dddddd/000000",
           position: 500,
           active: "TRUE"
-        }]),
+        }])
+      ])
+    })
+    .then(function() {
+      return Promise.all([
         knex('ingredients').insert([{
           menu_item_id: 4,
           name: "nibh in",
@@ -6009,6 +6029,261 @@ exports.seed = function(knex, Promise) {
           active: "TRUE",
           price: 0.32
         }])
-      ]);
-    });
+      ])
+    })
+    .then(function() {
+      return Promise.all([
+        knex('servingOptions').insert([{
+          menu_item_id: 4,
+          name: "nibh in",
+          active: "TRUE",
+          price: 0.3
+        }, {
+          menu_item_id: 75,
+          name: "sed tincidunt eu",
+          active: "FALSE",
+          price: 14.08
+        }, {
+          menu_item_id: 179,
+          name: "id ornare imperdiet",
+          active: "TRUE",
+          price: 6.91
+        }, {
+          menu_item_id: 489,
+          name: "sit amet",
+          active: "FALSE",
+          price: 10.49
+        }, {
+          menu_item_id: 482,
+          name: "libero quis orci",
+          active: "FALSE",
+          price: 9.26
+        }, {
+          menu_item_id: 332,
+          name: "volutpat erat",
+          active: "FALSE",
+          price: 9
+        }, {
+          menu_item_id: 416,
+          name: "amet nunc viverra",
+          active: "TRUE",
+          price: 6.35
+        }, {
+          menu_item_id: 378,
+          name: "et ultrices posuere",
+          active: "TRUE",
+          price: 8.52
+        }, {
+          menu_item_id: 400,
+          name: "aliquet pulvinar",
+          active: "FALSE",
+          price: 7.31
+        }, {
+          menu_item_id: 4,
+          name: "proin risus",
+          active: "FALSE",
+          price: 6.34
+        }, {
+          menu_item_id: 197,
+          name: "posuere nonummy integer",
+          active: "TRUE",
+          price: 5.72
+        }, {
+          menu_item_id: 399,
+          name: "pulvinar lobortis",
+          active: "TRUE",
+          price: 2.72
+        }, {
+          menu_item_id: 345,
+          name: "nibh fusce lacus",
+          active: "FALSE",
+          price: 3.26
+        }, {
+          menu_item_id: 393,
+          name: "neque sapien",
+          active: "FALSE",
+          price: 8
+        }, {
+          menu_item_id: 474,
+          name: "erat quisque",
+          active: "FALSE",
+          price: 6.63
+        }, {
+          menu_item_id: 76,
+          name: "non pretium",
+          active: "FALSE",
+          price: 4.85
+        }, {
+          menu_item_id: 115,
+          name: "curabitur convallis duis",
+          active: "FALSE",
+          price: 8.16
+        }, {
+          menu_item_id: 67,
+          name: "id justo",
+          active: "FALSE",
+          price: 11.11
+        }, {
+          menu_item_id: 458,
+          name: "rhoncus sed vestibulum",
+          active: "TRUE",
+          price: 9.65
+        }, {
+          menu_item_id: 459,
+          name: "ridiculus mus etiam",
+          active: "TRUE",
+          price: 4.81
+        }, {
+          menu_item_id: 288,
+          name: "sapien sapien",
+          active: "TRUE",
+          price: 13.42
+        }, {
+          menu_item_id: 228,
+          name: "maecenas tincidunt lacus",
+          active: "TRUE",
+          price: 8.21
+        }, {
+          menu_item_id: 194,
+          name: "nulla facilisi",
+          active: "FALSE",
+          price: 0.5
+        }, {
+          menu_item_id: 195,
+          name: "interdum mauris non",
+          active: "TRUE",
+          price: 9.26
+        }, {
+          menu_item_id: 294,
+          name: "et ultrices posuere",
+          active: "TRUE",
+          price: 4.25
+        }, {
+          menu_item_id: 279,
+          name: "velit vivamus",
+          active: "FALSE",
+          price: 0.28
+        }, {
+          menu_item_id: 148,
+          name: "amet eleifend",
+          active: "FALSE",
+          price: 6.53
+        }, {
+          menu_item_id: 178,
+          name: "lobortis convallis",
+          active: "FALSE",
+          price: 5.63
+        }, {
+          menu_item_id: 112,
+          name: "lorem vitae mattis",
+          active: "TRUE",
+          price: 12.32
+        }, {
+          menu_item_id: 238,
+          name: "at velit",
+          active: "FALSE",
+          price: 8.85
+        }, {
+          menu_item_id: 364,
+          name: "adipiscing elit",
+          active: "TRUE",
+          price: 14.66
+        }, {
+          menu_item_id: 462,
+          name: "lectus in",
+          active: "FALSE",
+          price: 7.54
+        }, {
+          menu_item_id: 180,
+          name: "sed magna",
+          active: "TRUE",
+          price: 12.56
+        }, {
+          menu_item_id: 173,
+          name: "tristique fusce",
+          active: "FALSE",
+          price: 7.88
+        }, {
+          menu_item_id: 324,
+          name: "nibh fusce lacus",
+          active: "FALSE",
+          price: 9.26
+        }, {
+          menu_item_id: 455,
+          name: "pede justo lacinia",
+          active: "TRUE",
+          price: 0.6
+        }, {
+          menu_item_id: 92,
+          name: "quisque id justo",
+          active: "FALSE",
+          price: 11.25
+        }, {
+          menu_item_id: 192,
+          name: "pretium iaculis diam",
+          active: "TRUE",
+          price: 11.29
+        }, {
+          menu_item_id: 21,
+          name: "mi in",
+          active: "TRUE",
+          price: 6.14
+        }, {
+          menu_item_id: 237,
+          name: "ridiculus mus etiam",
+          active: "FALSE",
+          price: 8.05
+        }, {
+          menu_item_id: 428,
+          name: "pede ac diam",
+          active: "FALSE",
+          price: 5.66
+        }, {
+          menu_item_id: 53,
+          name: "diam in magna",
+          active: "FALSE",
+          price: 0.46
+        }, {
+          menu_item_id: 164,
+          name: "consectetuer eget rutrum",
+          active: "TRUE",
+          price: 4.91
+        }, {
+          menu_item_id: 338,
+          name: "aliquam quis",
+          active: "FALSE",
+          price: 11.71
+        }, {
+          menu_item_id: 340,
+          name: "nulla pede ullamcorper",
+          active: "TRUE",
+          price: 10.2
+        }, {
+          menu_item_id: 300,
+          name: "primis in faucibus",
+          active: "FALSE",
+          price: 2.3
+        }, {
+          menu_item_id: 339,
+          name: "quis turpis",
+          active: "TRUE",
+          price: 0.66
+        }, {
+          menu_item_id: 405,
+          name: "in leo",
+          active: "FALSE",
+          price: 9.86
+        }, {
+          menu_item_id: 404,
+          name: "donec quis orci",
+          active: "TRUE",
+          price: 10.65
+        }, {
+          menu_item_id: 118,
+          name: "nibh fusce",
+          active: "TRUE",
+          price: 0.32
+        }])
+      ])
+    })
 };
