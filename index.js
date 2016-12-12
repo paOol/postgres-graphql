@@ -38,25 +38,25 @@ if (env == 'production') {
 }
 
 
+// import http from 'http'
 
+// http.createServer(postgraphql(
+//   'postgres:postgres:pw@localhost:5432/postgres',
+//   'public',
+//   {graphiql: true}
+//   )).listen(4000)
 
-// app.use(async(ctx, next) => {
+app.use(
+  postgraphql(
+    'postgres:postgres:pw@localhost:5432/postgres',
+    'public',
+    {graphiql: true}
+  )
 
-  // the object syntax for this might be wrong
+);
 
-//   postgraphql(postgraphql({
-//     pgConfig: 'postgres://blah@blah:blah',
-//     schemaName: 'public',
-//     options: {
-//       graphiql: true,
-//       enableCors: true
-//     }
-//   });
-
-//   winston.log('debug', 'PostGraphQL connection established');
-//   await next();
-// });
-
+  winston.log('debug', 'PostGraphQL connection established');
+  // await next();
 
 //app.use(async (ctx, next) => {
   //winston.log('debug', 'inside 2nd middleware');
@@ -85,7 +85,7 @@ if (env == 'production') {
 
 
 
-// app.listen(3000, () => winston.log('debug', 'server running on localhost:3000'););
+app.listen(3000, () => winston.log('debug', 'server running on localhost:3000'));
 
 
 
