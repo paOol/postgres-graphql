@@ -1,41 +1,14 @@
 let env = process.env.NODE_ENV || 'development';
 let knex = require('knex')(require('./knexfile')[env]);
-let winston = require('winston');
 let fs = require('fs-extra');
 let config = require('./config/config.json')[env];
 
-require('winston-papertrail').Papertrail;
 require('pretty-error').start();
 
 import postgraphql from 'postgraphql';
+import winston from './middleware/koawinston';
 import Koa from 'koa';
 let app = new Koa();
-
-
-// move to koa middleware
-winston.configure({
-  transports: [
-      new(winston.transports.Console)({
-        level: 'debug',
-        colorize: true,
-        prettyPrint: true
-      }),
-      new(winston.transports.File)({
-        filename: 'logs/postgresIndexjs.log',
-        level: 'info'
-      })
-    ]
-});
-if (env == 'production') {
-  winston.add(winston.transports.Papertrail, {
-    host: 'logs5.papertrailapp.com',
-    port: 47865,
-    level: 'debug',
-    colorize: true,
-    prettyPrint: true
-  });
-}
-
 
 
 app.use(
